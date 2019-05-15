@@ -41,11 +41,10 @@ describe('Reviews Endpoints', function() {
         text: 'Test new review',
         rating: 3,
         thing_id: testThing.id,
-        user_id: testUser.id,
       }
       return supertest(app)
         .post('/api/reviews')
-        .set('Authorization', helpers.makeAuthHeader(testUser))
+        .set('Authorization', helpers.makeAuthHeader(testUser[0]))
         .send(newReview)
         .expect(201)
         .expect(res => {

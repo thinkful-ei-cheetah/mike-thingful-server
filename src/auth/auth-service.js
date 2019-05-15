@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs')
+
 const AuthService = {
   getUserwithUsername(db, user_name) {
     return db('thingful_users')
@@ -5,7 +7,8 @@ const AuthService = {
       .first();
   },
   parseBasicToken(token) {
-    return Buffer.from(token, 'base64')
+    return Buffer
+      .from(token, 'base64')
       .toString()
       .split(':')
   }
