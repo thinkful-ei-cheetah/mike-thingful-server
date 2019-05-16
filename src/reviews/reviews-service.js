@@ -8,7 +8,7 @@ const ReviewsService = {
         'rev.id',
         'rev.rating',
         'rev.text',
-        'rev.date_created',
+        // 'rev.date_created',
         'rev.thing_id',
         db.raw(
           `row_to_json(
@@ -18,11 +18,12 @@ const ReviewsService = {
                 usr.user_name,
                 usr.full_name,
                 usr.nickname,
-                usr.date_created,
-                usr.date_modified
             ) tmp)
           ) AS "user"`
         )
+        // after line 20
+        // usr.date_created,
+        // usr.date_modified
       )
       .leftJoin(
         'thingful_users AS usr',
@@ -50,7 +51,7 @@ const ReviewsService = {
       rating: review.rating,
       text: xss(review.text),
       thing_id: review.thing_id,
-      date_created: review.date_created,
+      // date_created: review.date_created,
       user: review.user || {},
     }
   }
