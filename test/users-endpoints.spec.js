@@ -4,7 +4,7 @@ const helpers = require('./test-helpers');
 const bcrypt = require('bcryptjs');
 require('./setup');
 
-describe('User Endpoints', () => {
+describe.only('User Endpoints', () => {
   let db;
   before('connect db', () => {
     db = knex({
